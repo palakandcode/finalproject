@@ -1,8 +1,7 @@
-// src/main/java/model/User.java
-// src/main/java/model/User.java
+
 package main.java.model;
 
-// src/main/java/model/User.java
+
 
 
 import java.io.Serializable;
