@@ -1,12 +1,11 @@
-// src/main/java/controller/AuthController.java
-// src/main/java/controller/AuthController.java
+
 package controller;
 
 import main.java.model.Student;
 import main.java.model.Teacher;
 import main.java.model.User;
 
-// src/main/java/controller/AuthController.java
+
 
 
 import java.io.*;
