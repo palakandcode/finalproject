@@ -1,8 +1,7 @@
-// src/main/java/model/Teacher.java
-// src/main/java/model/Teacher.java
+
 package main.java.model;
 
-// src/main/java/model/Teacher.java
+
 
 
 import java.util.ArrayList;
