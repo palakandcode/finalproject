@@ -1,5 +1,4 @@
-// src/main/java/view/AppFrame.java
-// src/main/java/view/AppFrame.java
+
 package main.java.view;
 
 import controller.AuthController;
@@ -20,7 +19,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-// src/main/java/view/AppFrame.java
+
 
 
 public class AppFrame extends JFrame {
@@ -91,7 +90,7 @@ public class AppFrame extends JFrame {
         back.addActionListener(e -> showHome());
         p.add(back, BorderLayout.NORTH);
         JPanel center = new JPanel(new GridLayout(1, 2, 10, 10));
-        // Left: login
+        
         JPanel loginPanel = new JPanel(new GridBagLayout());
         loginPanel.setBorder(BorderFactory.createTitledBorder("Login"));
         loginPanel.setBackground(Color.WHITE);
@@ -112,7 +111,7 @@ public class AppFrame extends JFrame {
         JButton loginBtn = new JButton("Login");
         loginBtn.setBackground(new Color(0, 128, 0)); // green
         loginPanel.add(loginBtn, c);
-        // Right: signup
+        
         JPanel signupPanel = new JPanel(new GridBagLayout());
         signupPanel.setBorder(BorderFactory.createTitledBorder("Create New Account"));
         signupPanel.setBackground(Color.WHITE);
@@ -176,7 +175,7 @@ public class AppFrame extends JFrame {
                 }
             });
         } else {
-            // teacher fields
+        
             s.gridx = 0; s.gridy++;
             signupPanel.add(new JLabel("Teacher ID:"), s);
             s.gridx = 1;
@@ -256,13 +255,13 @@ public class AppFrame extends JFrame {
         top.add(logout, BorderLayout.EAST);
         p.add(top, BorderLayout.NORTH);
         JPanel center = new JPanel(new BorderLayout(8, 8));
-        // Left: student list with marks
+        
         JPanel left = new JPanel(new BorderLayout());
         left.setPreferredSize(new Dimension(600, 400));
         left.setBorder(BorderFactory.createTitledBorder("Students"));
         left.setBackground(Color.WHITE);
         List<Student> students = auth.getAllStudents();
-        // Columns: Roll, Name, Class, Branch, subjects..., Average
+        
         String[] cols = new String[4 + MarksController.SUBJECTS.length + 1];
         cols[0] = "Roll";
         cols[1] = "Name";
@@ -425,7 +424,7 @@ public class AppFrame extends JFrame {
         leftBottom.add(delStd);
         left.add(leftBottom, BorderLayout.SOUTH);
         center.add(left, BorderLayout.CENTER);
-        // Right: Marks and remark editor
+        
         JPanel right = new JPanel(new BorderLayout());
         right.setBorder(BorderFactory.createTitledBorder("Edit Selected Student"));
         right.setBackground(Color.WHITE);
@@ -465,7 +464,7 @@ public class AppFrame extends JFrame {
         rightBottom.add(genReport);
         rightBottom.add(genClassReport);
         right.add(rightBottom, BorderLayout.SOUTH);
-        // Table selection listener
+        
         table.getSelectionModel().addListSelectionListener(e -> {
             if (!e.getValueIsAdjusting()) {
                 int row = table.getSelectedRow();
@@ -479,7 +478,7 @@ public class AppFrame extends JFrame {
                 }
             }
         });
-        // actions
+        
         setMarkBtn.addActionListener(e -> {
             String roll = selectedRollField.getText();
             if (roll.isEmpty()) { JOptionPane.showMessageDialog(this, "No student selected."); return; }
@@ -563,7 +562,7 @@ public class AppFrame extends JFrame {
                 JOptionPane.showMessageDialog(this, "Remark is required before generating report.", "Validation", JOptionPane.WARNING_MESSAGE);
                 return;
             }
-            // ensure marks from marks storage are injected into student
+            
             Map<String, Integer> mm = marks.getMarksFor(st.getRollNumber());
             for (String subj : MarksController.SUBJECTS) {
                 int v = mm.getOrDefault(subj, 0);
@@ -573,7 +572,7 @@ public class AppFrame extends JFrame {
             try {
                 File f = marks.generateHTMLReport(st);
                 Desktop.getDesktop().browse(f.toURI());
-                // Congratulatory message
+                
                 double avg = st.average();
                 String msg;
                 if (avg >= 90) msg = "Excellent performance! Keep shining! 🌟";
@@ -636,7 +635,7 @@ public class AppFrame extends JFrame {
         top.add(logout, BorderLayout.EAST);
         p.add(top, BorderLayout.NORTH);
         JPanel center = new JPanel(new BorderLayout(8, 8));
-        // Info panel
+        
         JPanel info = new JPanel(new GridLayout(1, 2));
         JPanel left = new JPanel(new GridLayout(5, 1));
         left.setBorder(BorderFactory.createTitledBorder("Profile"));
@@ -647,7 +646,7 @@ public class AppFrame extends JFrame {
         left.add(new JLabel("Branch: " + student.getBranch()));
         left.add(new JLabel("Average: " + String.format("%.2f", student.average())));
         info.add(left);
-        // Marks table
+        
         JPanel right = new JPanel(new BorderLayout());
         right.setBorder(BorderFactory.createTitledBorder("Marks"));
         right.setBackground(Color.WHITE);
@@ -656,7 +655,7 @@ public class AppFrame extends JFrame {
             public boolean isCellEditable(int r, int c) { return false; }
         };
         Map<String, Integer> mm = marks.getMarksFor(student.getRollNumber());
-        // compute some class averages (naively over all students)
+        
         List<Student> allStuds = auth.getAllStudents();
         List<String> allRolls = allStuds.stream().map(Student::getRollNumber).collect(Collectors.toList());
         for (String subj : MarksController.SUBJECTS) {
@@ -685,7 +684,7 @@ public class AppFrame extends JFrame {
         exportCSV.setForeground(Color.WHITE);
         actions.add(genReport); actions.add(exportCSV);
         genReport.addActionListener(e -> {
-            // ensure student's marks updated from marks storage
+            
             Map<String, Integer> mks = marks.getMarksFor(student.getRollNumber());
             for (String subj : MarksController.SUBJECTS) {
                 student.setMark(subj, mks.getOrDefault(subj, 0));
