@@ -31,7 +31,7 @@ public class AppFrame extends JFrame {
         auth = new AuthController();
         marks = new MarksController();
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(1200, 600); // Increased width for more columns
+        setSize(1200, 600); 
         setLocationRelativeTo(null);
         setLayout(new BorderLayout());
         showHome();
@@ -40,7 +40,7 @@ public class AppFrame extends JFrame {
     public void showHome() {
         getContentPane().removeAll();
         JPanel p = new JPanel(new BorderLayout());
-        p.setBackground(new Color(173, 216, 230)); // light blue
+        p.setBackground(new Color(173, 216, 230)); 
         JLabel title = new JLabel("<html><center><h1>Student Report Card Generator</h1></center></html>", SwingConstants.CENTER);
         title.setForeground(new Color(0, 100, 0));
         title.setFont(new Font("Serif", Font.BOLD, 32));
@@ -53,7 +53,7 @@ public class AppFrame extends JFrame {
         JLabel tInfo = new JLabel("<html><p>Create account or Login as Teacher to manage marks and generate class reports.</p></html>");
         teacherPanel.add(tInfo, BorderLayout.CENTER);
         JButton tBtn = new JButton("Open Teacher Login/Signup");
-        tBtn.setBackground(new Color(50, 205, 50)); // lime green
+        tBtn.setBackground(new Color(50, 205, 50)); 
         tBtn.addActionListener(e -> showLogin(true));
         teacherPanel.add(tBtn, BorderLayout.SOUTH);
         JPanel studentPanel = new JPanel(new BorderLayout());
@@ -62,7 +62,7 @@ public class AppFrame extends JFrame {
         JLabel sInfo = new JLabel("<html><p>Students can create an account, view marks, compare and export report.</p></html>");
         studentPanel.add(sInfo, BorderLayout.CENTER);
         JButton sBtn = new JButton("Open Student Login/Signup");
-        sBtn.setBackground(new Color(135, 206, 250)); // sky blue
+        sBtn.setBackground(new Color(135, 206, 250)); 
         sBtn.addActionListener(e -> showLogin(false));
         studentPanel.add(sBtn, BorderLayout.SOUTH);
         center.add(teacherPanel);
@@ -84,9 +84,9 @@ public class AppFrame extends JFrame {
     public void showLogin(boolean teacherMode) {
         getContentPane().removeAll();
         JPanel p = new JPanel(new BorderLayout(10, 10));
-        p.setBackground(new Color(240, 248, 255)); // alice blue
+        p.setBackground(new Color(240, 248, 255)); 
         JButton back = new JButton("← Back");
-        back.setBackground(new Color(255, 165, 0)); // orange
+        back.setBackground(new Color(255, 165, 0)); 
         back.addActionListener(e -> showHome());
         p.add(back, BorderLayout.NORTH);
         JPanel center = new JPanel(new GridLayout(1, 2, 10, 10));
@@ -109,7 +109,7 @@ public class AppFrame extends JFrame {
         c.gridx = 0; c.gridy++;
         c.gridwidth = 2;
         JButton loginBtn = new JButton("Login");
-        loginBtn.setBackground(new Color(0, 128, 0)); // green
+        loginBtn.setBackground(new Color(0, 128, 0)); 
         loginPanel.add(loginBtn, c);
         
         JPanel signupPanel = new JPanel(new GridBagLayout());
@@ -152,7 +152,7 @@ public class AppFrame extends JFrame {
             s.gridx = 0; s.gridy++;
             s.gridwidth = 2;
             JButton createStudent = new JButton("Create Student Account");
-            createStudent.setBackground(new Color(70, 130, 180)); // steel blue
+            createStudent.setBackground(new Color(70, 130, 180)); 
             signupPanel.add(createStudent, s);
             createStudent.addActionListener(ev -> {
                 String name = nameField.getText().trim();
@@ -189,7 +189,7 @@ public class AppFrame extends JFrame {
             s.gridx = 0; s.gridy++;
             s.gridwidth = 2;
             JButton createTeacher = new JButton("Create Teacher Account");
-            createTeacher.setBackground(new Color(34, 139, 34)); // forest green
+            createTeacher.setBackground(new Color(34, 139, 34)); 
             signupPanel.add(createTeacher, s);
             createTeacher.addActionListener(ev -> {
                 String name = nameField.getText().trim();
@@ -242,7 +242,7 @@ public class AppFrame extends JFrame {
     public void showTeacherDashboard(Teacher teacher) {
         getContentPane().removeAll();
         JPanel p = new JPanel(new BorderLayout(8, 8));
-        p.setBackground(new Color(144, 238, 144)); // light green
+        p.setBackground(new Color(144, 238, 144)); 
         JPanel top = new JPanel(new BorderLayout());
         top.setBackground(new Color(144, 238, 144));
         JLabel welcomeLabel = new JLabel("Teacher Dashboard - Welcome " + teacher.getName(), SwingConstants.LEFT);
@@ -299,7 +299,7 @@ public class AppFrame extends JFrame {
         JPanel leftBottom = new JPanel();
         leftBottom.setBackground(Color.WHITE);
         JButton refresh = new JButton("Refresh");
-        refresh.setBackground(new Color(255, 215, 0)); // gold
+        refresh.setBackground(new Color(255, 215, 0)); 
         refresh.addActionListener(e -> {
             DefaultTableModel m = (DefaultTableModel) table.getModel();
             m.setRowCount(0);
@@ -326,7 +326,7 @@ public class AppFrame extends JFrame {
         });
         leftBottom.add(refresh);
         JButton addStd = new JButton("Add Student");
-        addStd.setBackground(new Color(0, 191, 255)); // deep sky blue
+        addStd.setBackground(new Color(0, 191, 255)); 
         addStd.addActionListener(e -> {
             JPanel addPanel = new JPanel(new GridLayout(6, 2));
             addPanel.add(new JLabel("Full Name:"));
@@ -370,7 +370,7 @@ public class AppFrame extends JFrame {
         });
         leftBottom.add(addStd);
         JButton editStd = new JButton("Edit Student");
-        editStd.setBackground(new Color(255, 165, 0)); // orange
+        editStd.setBackground(new Color(255, 165, 0)); 
         editStd.addActionListener(e -> {
             int row = table.getSelectedRow();
             if (row == -1) {
@@ -441,10 +441,10 @@ public class AppFrame extends JFrame {
         JTextField markFld = new JTextField(4);
         topRight.add(markFld);
         JButton setMarkBtn = new JButton("Set/Update Mark");
-        setMarkBtn.setBackground(new Color(0, 255, 127)); // spring green
+        setMarkBtn.setBackground(new Color(0, 255, 127)); 
         topRight.add(setMarkBtn);
         JButton editAllMarksBtn = new JButton("Edit All Marks");
-        editAllMarksBtn.setBackground(new Color(255, 20, 147)); // deep pink
+        editAllMarksBtn.setBackground(new Color(255, 20, 147)); 
         topRight.add(editAllMarksBtn);
         right.add(topRight, BorderLayout.NORTH);
         JPanel midRight = new JPanel(new BorderLayout());
@@ -455,11 +455,11 @@ public class AppFrame extends JFrame {
         JPanel rightBottom = new JPanel();
         rightBottom.setBackground(Color.WHITE);
         JButton saveRemark = new JButton("Save Remark");
-        saveRemark.setBackground(new Color(218, 165, 32)); // goldenrod
+        saveRemark.setBackground(new Color(218, 165, 32)); 
         JButton genReport = new JButton("Generate Student Report (HTML)");
-        genReport.setBackground(new Color(255, 69, 0)); // orange red
+        genReport.setBackground(new Color(255, 69, 0)); 
         JButton genClassReport = new JButton("Generate Class Reports (all HTML)");
-        genClassReport.setBackground(new Color(255, 0, 255)); // magenta
+        genClassReport.setBackground(new Color(255, 0, 255)); 
         rightBottom.add(saveRemark);
         rightBottom.add(genReport);
         rightBottom.add(genClassReport);
@@ -622,7 +622,7 @@ public class AppFrame extends JFrame {
     public void showStudentDashboard(Student student) {
         getContentPane().removeAll();
         JPanel p = new JPanel(new BorderLayout(8, 8));
-        p.setBackground(new Color(135, 206, 235)); // sky blue
+        p.setBackground(new Color(135, 206, 235)); 
         JPanel top = new JPanel(new BorderLayout());
         top.setBackground(new Color(135, 206, 235));
         JLabel welcomeLabel = new JLabel("Student Dashboard - Welcome " + student.getName(), SwingConstants.LEFT);
@@ -678,9 +678,9 @@ public class AppFrame extends JFrame {
         JPanel actions = new JPanel();
         actions.setBackground(new Color(135, 206, 235));
         JButton genReport = new JButton("Generate My Report (HTML)");
-        genReport.setBackground(new Color(255, 140, 0)); // dark orange
+        genReport.setBackground(new Color(255, 140, 0)); 
         JButton exportCSV = new JButton("Export My Report (CSV)");
-        exportCSV.setBackground(new Color(75, 0, 130)); // indigo
+        exportCSV.setBackground(new Color(75, 0, 130)); 
         exportCSV.setForeground(Color.WHITE);
         actions.add(genReport); actions.add(exportCSV);
         genReport.addActionListener(e -> {
@@ -693,7 +693,7 @@ public class AppFrame extends JFrame {
             try {
                 File f = marks.generateHTMLReport(student);
                 Desktop.getDesktop().browse(f.toURI());
-                // Congratulatory message
+                
                 double avg = student.average();
                 String msg;
                 if (avg >= 90) msg = "Excellent performance! Keep shining! 🌟";
