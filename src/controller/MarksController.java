@@ -1,5 +1,4 @@
-// src/main/java/controller/MarksController.java
-// src/main/java/controller/MarksController.java
+
 package controller;
 
 import main.java.model.Student;
@@ -92,7 +91,7 @@ public class MarksController {
         return cnt == 0 ? 0.0 : sum / cnt;
     }
 
-    // Generate PNG bar graph
+    
     private void generateGraphImage(Student s, String graphPath) throws IOException {
         int width = 600;
         int height = 400;
@@ -101,14 +100,14 @@ public class MarksController {
         g2d.setColor(Color.WHITE);
         g2d.fillRect(0, 0, width, height);
         g2d.setColor(Color.BLACK);
-        g2d.drawLine(50, 350, 550, 350); // x-axis
-        g2d.drawLine(50, 50, 50, 350); // y-axis
+        g2d.drawLine(50, 350, 550, 350); 
+        g2d.drawLine(50, 50, 50, 350); 
 
-        // Labels
+        
         g2d.drawString("Marks", 10, 200);
         g2d.drawString("Subjects", 250, 380);
 
-        // Scales
+        
         for (int i = 0; i <= 100; i += 20) {
             g2d.drawString(String.valueOf(i), 20, 350 - (i * 3));
         }
